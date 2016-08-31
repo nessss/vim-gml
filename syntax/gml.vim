@@ -23,7 +23,7 @@ syn keyword gmlBuiltinGlobal score health lives async_load
 
 syn keyword gmlBuiltinScriptVariable argument_count
 syn match gmlBuiltinScriptVariable '\v<argument(1?[0-5]|[0-9])>'
-syn match gmlBuiltinScriptVariable '\v<argument\ze\[(1?[0-5]|[0-9])\]'
+syn match gmlBuiltinScriptVariable '\v<argument\ze[\(1?[0-5]|[0-9]\)]'
 
 syn match gmlBuiltinFunction '\v<is_array\ze\_s*\('
 syn match gmlBuiltinFunction '\v<is_int(32|64)\ze\_s*\('
@@ -377,6 +377,8 @@ hi def link gmlTimelineFunction           gmlFunction
 hi def link gmlDisplayFunction            gmlFunction
 hi def link gmlWindowFunction             gmlFunction
 hi def link gmlViewFunction               gmlFunction
+hi def link gmlBuiltinFunction            gmlFunction
+hi def link gmlBuiltinScriptVariable      gmlFunction
 
 hi def link gmlFunction                   Function
 
