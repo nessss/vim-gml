@@ -1,0 +1,37 @@
+snippet for
+	for(var $1 = 0; ${1:i} < ${2}; $1++){
+		${0:// code}
+	}
+
+snippet sw
+	switch(${1}){
+		case ${2}:
+			${0:// code}
+			break;
+	}
+
+snippet ca
+	case ${1}:
+		${0:// code}
+		break;
+
+snippet sd
+	show_debug_message("${0}");
+
+snippet se
+	show_error("${1}", ${2:false});$0
+
+snippet if
+	if(${1}){
+		${0:// code}
+	}
+
+snippet el
+	else{
+		${0:// code}
+	}
+
+snippet elif
+	else if(${1}){
+		${0:// code}
+	}
