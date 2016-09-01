@@ -21,10 +21,6 @@ syn keyword gmlBoolean true false
 syn keyword gmlKeyword self other all noone undefined global
 syn keyword gmlBuiltinGlobal score health lives async_load
 
-syn keyword gmlBuiltinScriptVariable argument_count
-syn match gmlBuiltinScriptVariable '\v<argument(1?[0-5]|[0-9])>'
-syn match gmlBuiltinScriptVariable '\v<argument\ze[\(1?[0-5]|[0-9]\)]'
-
 syn match gmlBuiltinFunction '\v<is_array\ze\_s*\('
 syn match gmlBuiltinFunction '\v<is_int(32|64)\ze\_s*\('
 syn match gmlBuiltinFunction '\v<is_matrix\ze\_s*\('
@@ -289,6 +285,28 @@ syn region gmlBlockComment start='\v\/\*' end='\v\*\/' contains=gmlTodo fold ext
 syn region gmlParenPair start='(' end=')' transparent extend
 syn region gmlCodeBlock start='\v\{' end='\v\}' transparent extend fold
 " syn region gmlFunctionDefine start='\v#define \I\i*\_.{-}\{' end='\v\}' transparent keepend fold
+"
+" arguments
+syn keyword gmlBuiltinScriptVariable argument_count
+syn match gmlBuiltinScriptVariable '\v<argument\ze\[([0-9]|1[0-5]|(\S+\s*)+)\]'
+syn match gmlBuiltinScriptVariable '\v<argument(1[0-5]|[0-9])>'
+
+syn keyword gmlEventTypeConstant ev_create ev_destroy ev_step ev_alarm ev_keyboard ev_keypress ev_keyrelease ev_mouse ev_collision ev_other ev_draw
+syn match gmlEventNumberConstant '\v<ev_step_(normal|begin|end)>'
+syn match gmlEventNumberConstant '\v<ev_draw_(begin|end|pre|post)>'
+syn match gmlEventNumberConstant '\v<ev_gui_(begin|end)>'
+syn match gmlEventNumberConstant '\v<ev_(left|middle|right|no)_button>'
+syn match gmlEventNumberConstant '\v<ev_(left|middle|right)_press>'
+syn match gmlEventNumberConstant '\v<ev_(left|middle|right)_release>'
+syn match gmlEventNumberConstant '\v<ev_mouse_(enter|leave|wheel_up|wheel_down)>'
+syn match gmlEventNumberConstant '\v<ev_global_(left|middle|right)_button>'
+syn match gmlEventNumberConstant '\v<ev_global_(left|middle|right)_press>'
+syn match gmlEventNumberConstant '\v<ev_global_(left|middle|right)_release>'
+syn keyword gmlEventTypeConstant ev_outside ev_boundary
+syn match gmlEventNumberConstant '\v<ev_(game|room)_(start|end)>'
+syn match gmlEventNumberConstant '\v<ev_no_more(lives|health)>'
+syn keyword gmlEventTypeConstant ev_animation_end ev_end_of_path ev_close_button
+syn match gmlEventNumberConstant '\v<ev_user(1[0-5]|[0-9])>'
 
 syn sync fromstart
 
@@ -389,6 +407,8 @@ hi def link gmlMouseConstant              gmlConstant
 hi def link gmlParticleEffectConstant     gmlConstant
 hi def link gmlPhysicsJointConstant       gmlConstant
 hi def link gmlShaderConstant             gmlConstant
+hi def link gmlEventTypeConstant          gmlConstant
+hi def link gmlEventNumberConstant        gmlConstant
 
 hi def link gmlConstant                   Constant
 
